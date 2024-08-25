@@ -3,11 +3,10 @@ name: Cypress UI Test
 on: 
   push:
     branches:
-      - cicd  # Trigger the workflow on pushes to the 'amir' branch
+      - pre-main 
   pull_request:
     branches:
-      - cicd  # Trigger the workflow on pull requests to the 'amir' branch
-
+      - pre-main
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
@@ -19,7 +18,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18.17.0'  # Ensure this matches the required Node.js version
+          node-version: '18.17.0'  
 
       - name: Install Root Dependencies
         run: npm ci
@@ -41,4 +40,4 @@ jobs:
           npx wait-on http://localhost:3000
 
       - name: Run Cypress tests
-        run: npx cypress run  # Run Cypress from the root directory where `cypress.config.js` is located
+        run: npx cypress run 
