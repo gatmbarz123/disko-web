@@ -3,10 +3,10 @@ name: Cypress UI Test
 on: 
   push:
     branches:
-      - pre-main 
+      - dev
   pull_request:
     branches:
-      - pre-main
+      - dev
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
